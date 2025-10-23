@@ -13,6 +13,7 @@ body {
 
 
 .container-header {
+    flex-grow: 3;
     display: flex;
     flex-direction: row;
     background-image: url('header.jpg');
@@ -42,7 +43,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-grow: 3;
-    background-color: aquamarine;
+    background-color: rgb(184, 184, 184);
     margin-bottom: 20px;
 }
 
@@ -50,7 +51,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    background-color: rgb(255, 123, 0);
+    background-color: rgb(184, 184, 184);
     margin-bottom: 20px;
 
 }
@@ -66,14 +67,14 @@ body {
 .container4 {
     display: flex;
     flex-direction: row;
-    background-color: crimson;
+    background-color: rgb(184, 184, 184);
 }
 
 .container3_column1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    background-color: brown;
+    background-color: rgb(184, 184, 184);
     flex-grow: 1;
 
 }
@@ -81,31 +82,31 @@ body {
 .container3_column2 {
     display: flex;
     flex-direction: column;
-    background-color: brown;
+    background-color: rgb(184, 184, 184);
 
 }
 
 .container1 div {
-    background-color: blueviolet;
+    background-color: rgb(184, 184, 184);
     margin: 10px;
     font-size: 30px;
 }
 
 
 .container2 div {
-    background-color: rgb(251, 255, 6);
+    background-color: rgb(184, 184, 184);
     margin: 10px;
     font-size: 30px;
 }
 
 .container3 div {
-    background-color: rgb(46, 117, 61);
+    background-color: rgb(184, 184, 184);
     margin: 10px;
     font-size: 30px;
 }
 
 .container4 div {
-    background-color: rgb(51, 46, 117);
+    background-color: rgb(184, 184, 184);
     margin: 10px;
     font-size: 30px;
     flex-grow: 1;
@@ -113,10 +114,6 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-    body {
-        background-color: lightblue;
-    }
-
     .container-header {
         flex-direction: column;
     }
@@ -129,21 +126,36 @@ body {
         flex-direction: column;
     }
 
+    /* Reducir tamaño de las imágenes en container3 para pantallas pequeñas */
+    .container3 img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
 }
 
 
 
 @media only screen and (max-width: 479px) {
-    body {
-        background-color: lightblue;
-    }
-
     .container3_column1 {
         display: flex;
         flex-direction: column;
     }
 
+    /* Reducir aún más las imágenes en móviles muy pequeños */
+    .container3 img {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 }
+
 
 
 
@@ -183,4 +195,23 @@ ANIMATIONS
 .nav-item:hover::after,
 .nav-item:hover::before {
     transform: scaleX(1);
+}
+
+
+.nav-item:hover::after,
+.nav-item:hover::before {
+    transform: scaleX(1);
+}
+
+.container3 img {
+    transition: transform 0.28s cubic-bezier(.2, .9, .3, 1), box-shadow 0.28s ease;
+    will-change: transform;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.container3 img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+    z-index: 2;
 }
